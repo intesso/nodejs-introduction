@@ -12,6 +12,7 @@ output: index.html
 --
 # node.js introduction
 
+> http://intesso.github.io/nodejs-introduction
 --
 ### who uses node.js
 
