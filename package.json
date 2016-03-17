@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node_modules/.bin/cleaver README.md",
-    "watch": "node_modules/.bin/cleaver watch README.md",
-    "show": "http-server & node_modules/.bin/cleaver watch *.*"
+    "watch": "node_modules/.bin/cleaver watch *.*",
+    "show": "live-server & node_modules/.bin/cleaver watch *.*"
   },
   "repository": {
     "type": "git",

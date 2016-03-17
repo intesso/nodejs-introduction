@@ -1,12 +1,14 @@
+
 img {
-    width: 100%
+  width: 100%
 }
 
 blockquote {
   padding-left: 20px;
   margin-left: 0;
-  background: #efefef;
-  border-left: 5px solid #272822;
+  margin-right: 0;
+  background: #ddd;
+  border-left: 5px solid #ccc;
   border-radius: 0 3px 3px 0;
 }
 
@@ -15,6 +17,39 @@ blockquote p {
   color: #272822;
 }
 
+p {
+    display: block;
+    -webkit-margin-before: 0.9em;
+    -webkit-margin-after: 0.9em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+pre {
+    font-size: 90%;
+    line-height: 1.2;
+}
+
+ul {
+    padding: 0 0 0 40px;
+    font-weight: 200;
+    line-height: 1.6;
+}
+
 .progress {
-    z-index: 1000;
+  z-index: 1000;
+}
+
+.progress-bar {
+    height: 5px;
+}
+
+body,
+.slide {
+  background-color: #eee;
+}
+
+.slide-content {
+  width: 1000px;
+  height: 800px;
 }
