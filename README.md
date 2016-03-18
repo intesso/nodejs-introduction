@@ -48,7 +48,7 @@ and many more ...
 [go download: https://nodejs.org/en/download/](https://nodejs.org/en/download/)
 
 --
-### experiences with node.js
+### personal experiences with node.js
 
 - started with v0.6
 - v0.8, v0.12, v4.3 in production
@@ -58,7 +58,7 @@ and many more ...
 - when something was not working the way I thought it should be, it was most of the time, because I didn't understand JavaScript well enough
 
 --
-### built with node.js
+### built with node.js at intesso
 
 - Traffic Control System
   - Realtime UI with WebSockets (socket.io)
@@ -223,7 +223,7 @@ npm install functional-javascript-workshop -g
 
 
 --
-### javascript / ECMAScript / node.js Versions
+### JavaScript / ECMAScript / node.js Versions
 
 - ES5 node.js < 0.x
 - ES6 (ECMAScript 2015) io.js, node.js >= 0.x
@@ -289,30 +289,6 @@ add(1, function(i){
 --
 ### js obstacles
 
-> Functional Beauty
-
-```js
-
-function repeater (who, what) {
-  var text = 'said';
-  return function repeat() {
-    console.log(who, text, what);
-  }
-}
-
-var i = repeater('I','hello');
-var you = repeater('you','world');
-
-i();  // I said hello
-you(); // you said world
-
-repeater('everyone', 'yay!')();  //everyone said yay!
-
-```
-
---
-### js obstacles
-
 > Prototypal Inheritance
 
 ```js
@@ -372,6 +348,31 @@ Hello('I SAY:').world();
 --
 ### js obstacles
 
+> Grasp Functional Beauty
+
+```js
+
+function repeater (who, what) {
+  var text = 'said';
+  // returning the inner function creates a closure at run time
+  return function repeat() {
+    console.log(who, text, what);
+  }
+}
+
+var i = repeater('I','hello');
+var you = repeater('you','world');
+
+i();  // I said hello
+you(); // you said world
+
+repeater('everyone', 'yay!')();  //everyone said yay!
+
+```
+
+--
+### js obstacles
+
 > problem with `for` loop
 
 ```js
@@ -387,18 +388,147 @@ for(var i = 0; i < 10; i++) {
   setTimeout(function (){console.log('i', i)}, 100);
   //10 10 10  ... 10
 } // **don't use for loop for asynchronous actions**
+```
 
-// another try
+--
+### js obstacles
+
+> solutions to `for` loop problems
+
+```js
+// Array.forEach function
 var arr = [];
 for(var i = 0; i < 10; i++) {
   arr.push(i);
 }
 arr.forEach(function(i){
   setTimeout(function (){console.log('i', i)}, 100);
-    //0 1 2  ... 9
+  //0 1 2  ... 9
 });  // **Array.forEach works well for asynchronous actions**
 
+// anonymous immediately invoked function
+for(var i = 0; i < 10; i++) {
+  (function(i){
+    setTimeout(function (){console.log('i', i)}, 100);
+    //0 1 2  ... 9
+  })(i);
+}
 ```
+
+--
+### js obstacles
+
+> Variable Hoisting
+
+*Variables can be used, before they were declared. Variable declarations (not initialization) are moved to the top of the function or global scope (hoisted). It is therefore recommended to declare the variables at the top of the function or global scope*
+```js
+var myvar = 'hello outer';
+function myfunction () {
+  console.log(myvar); // undefined
+  var myvar = 'hello inner';
+}
+myfunction();
+```
+*myfunction above is equivalent to this:*
+```js
+function myfunction () {
+  var myvar; // declaration
+  console.log(myvar); // undefined
+  myvar = 'hello inner'; // initializations
+}
+```
+
+--
+### js obstacles
+
+> NO Block Scope
+
+```js
+var x = 'hallo';
+console.log(x); // 'hallo'
+if (true) { // block
+	var x = 'welt'; // overwrites var x outside block
+	console.log(x); // 'welt'
+}
+console.log(x); // 'welt'
+```
+**JavaScript has function scope (no block scope)**
+
+
+--
+### js obstacles
+
+> but Function Scope
+
+```js
+var x = 'hallo';
+console.log(x); // 'hallo'
+function welt () { // function scope
+    if (true) {
+  	var x = 'welt'; // own declaration of x inside function
+  	console.log(x); // 'welt'
+  }
+}
+welt();
+console.log(x); // 'hallo'
+```
+--
+### js obstacles
+
+> Function Scope, same in green
+
+```js
+var x = 'hallo';
+console.log(x); // 'hallo'
+(function () { // function scope
+    if (true) {
+  	var x = 'welt'; // own declaration of x inside function
+  	console.log(x); // 'welt'
+  }
+})();
+
+console.log(x); // 'hallo'
+```
+--
+### js obstacles
+
+> Immediately-Invoked Function Expression
+
+```js
+// functions can be declared in brackets (function(){})
+// and be Immediately-Invoked with following function call ()
+(function () {
+  console.log('hallo welt');
+})();
+
+// this can be used to get function scope and alias names
+// often used with jQuery
+(function ($) {
+  console.log($('body'));
+}(jQuery));
+
+```
+
+--
+### js obstacles
+
+> NO Dynamic Scope in JavaScript
+
+```js
+function repeat (who, what) {
+  var text = 'said';
+  repeater(who, what);
+}
+
+function repeater(who, what) {
+  console.log(who, text, what); // ReferenceError: text is not defined
+}
+// the repeater function wasn't defined inside the
+// caller function that has the text variable defined.
+repeat('I', ', hey YOU!');
+```
+
+**JavaScript does not support dynamic scope, where the variable resolution happens in the scope where the function is called at run time.**
 
 --
 ### js obstacles
@@ -408,15 +538,17 @@ arr.forEach(function(i){
 ```js
 function whoSaysWhat (who, what) {
   var text = 'says';
-  function say() {
+  function say() { // inner function can access the outer scope
     console.log(who, text, what); // text is declared in parent function
   }
   say();
 }
-whoSaysWhat('elephant', 'trörööö');
+whoSaysWhat('elephant', 'trörööö');  // elephant says trörööö
 ```
 
-**The scope of a variable is defined by its location in the source code. This is called lexical scope.**
+**The scope of a variable is statically defined by its location in the source code (not dynamically at run time). This is called lexical scope.**
+
+*Note: inner functions can access variables from outer functions.*
 
 --
 ### js obstacles
@@ -428,7 +560,10 @@ whoSaysWhat('elephant', 'trörööö');
 ```js
 function repeater (who, what) {
   var text = 'said';
-  return function repeat() { // inner function is returned
+  // inner function is returned and creates a creates closure
+  // where the returned function has access to the outer scope
+  // it was defined in, even after the outer function has terminated.
+  return function repeat() {
     console.log(who, text, what);
   }
 }

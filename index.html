@@ -407,6 +407,7 @@ body,
 }
 
 .slide-content {
+  margin-top: 40px;
   width: 1000px;
   height: 800px;
 }
@@ -461,7 +462,7 @@ and many more ...</p>
 </section>
   </div>
   <div class="slide hidden" id="slide-6">
-    <section class="slide-content"><h3 id="experiences-with-node-js">experiences with node.js</h3>
+    <section class="slide-content"><h3 id="personal-experiences-with-node-js">personal experiences with node.js</h3>
 <ul>
 <li>started with v0.6</li>
 <li>v0.8, v0.12, v4.3 in production</li>
@@ -475,7 +476,7 @@ and many more ...</p>
 </section>
   </div>
   <div class="slide hidden" id="slide-7">
-    <section class="slide-content"><h3 id="built-with-node-js">built with node.js</h3>
+    <section class="slide-content"><h3 id="built-with-node-js-at-intesso">built with node.js at intesso</h3>
 <ul>
 <li>Traffic Control System<ul>
 <li>Realtime UI with WebSockets (socket.io)</li>
@@ -656,7 +657,7 @@ npm install functional-javascript-workshop -g</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-19">
-    <section class="slide-content"><h3 id="javascript-ecmascript-node-js-versions">javascript / ECMAScript / node.js Versions</h3>
+    <section class="slide-content"><h3 id="javascript-ecmascript-node-js-versions">JavaScript / ECMAScript / node.js Versions</h3>
 <ul>
 <li>ES5 node.js &lt; 0.x</li>
 <li>ES6 (ECMAScript 2015) io.js, node.js &gt;= 0.x</li>
@@ -726,28 +727,6 @@ add(<span class="hljs-number">1</span>, <span class="hljs-function"><span class=
   <div class="slide hidden" id="slide-22">
     <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
 <blockquote>
-<p>Functional Beauty</p>
-</blockquote>
-<pre><code class="lang-js">
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">repeater</span> (<span class="hljs-params">who, what</span>) </span>{
-  <span class="hljs-keyword">var</span> text = <span class="hljs-string">'said'</span>;
-  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">repeat</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(who, text, what);
-  }
-}
-
-<span class="hljs-keyword">var</span> i = repeater(<span class="hljs-string">'I'</span>,<span class="hljs-string">'hello'</span>);
-<span class="hljs-keyword">var</span> you = repeater(<span class="hljs-string">'you'</span>,<span class="hljs-string">'world'</span>);
-
-i();  <span class="hljs-comment">// I said hello</span>
-you(); <span class="hljs-comment">// you said world</span>
-
-repeater(<span class="hljs-string">'everyone'</span>, <span class="hljs-string">'yay!'</span>)();  <span class="hljs-comment">//everyone said yay!</span></code></pre>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-23">
-    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
-<blockquote>
 <p>Prototypal Inheritance</p>
 </blockquote>
 <pre><code class="lang-js"><span class="hljs-comment">// constructor function</span>
@@ -772,7 +751,7 @@ Hello.prototype.ch = <span class="hljs-function"><span class="hljs-keyword">func
 hello.ch(); <span class="hljs-comment">// prints out: sali duu</span></code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-24">
+  <div class="slide hidden" id="slide-23">
     <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
 <blockquote>
 <p>problem with <code>this</code></p>
@@ -801,6 +780,29 @@ Hello.prototype.world = <span class="hljs-function"><span class="hljs-keyword">f
 Hello(<span class="hljs-string">'I SAY:'</span>).world();</code></pre>
 </section>
   </div>
+  <div class="slide hidden" id="slide-24">
+    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
+<blockquote>
+<p>Grasp Functional Beauty</p>
+</blockquote>
+<pre><code class="lang-js">
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">repeater</span> (<span class="hljs-params">who, what</span>) </span>{
+  <span class="hljs-keyword">var</span> text = <span class="hljs-string">'said'</span>;
+  <span class="hljs-comment">// returning the inner function creates a closure at run time</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">repeat</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(who, text, what);
+  }
+}
+
+<span class="hljs-keyword">var</span> i = repeater(<span class="hljs-string">'I'</span>,<span class="hljs-string">'hello'</span>);
+<span class="hljs-keyword">var</span> you = repeater(<span class="hljs-string">'you'</span>,<span class="hljs-string">'world'</span>);
+
+i();  <span class="hljs-comment">// I said hello</span>
+you(); <span class="hljs-comment">// you said world</span>
+
+repeater(<span class="hljs-string">'everyone'</span>, <span class="hljs-string">'yay!'</span>)();  <span class="hljs-comment">//everyone said yay!</span></code></pre>
+</section>
+  </div>
   <div class="slide hidden" id="slide-25">
     <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
 <blockquote>
@@ -817,36 +819,157 @@ Hello(<span class="hljs-string">'I SAY:'</span>).world();</code></pre>
 <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
   setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'i'</span>, i)}, <span class="hljs-number">100</span>);
   <span class="hljs-comment">//10 10 10  ... 10</span>
-} <span class="hljs-comment">// **don't use for loop for asynchronous actions**</span>
-
-<span class="hljs-comment">// another try</span>
+} <span class="hljs-comment">// **don't use for loop for asynchronous actions**</span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-26">
+    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
+<blockquote>
+<p>solutions to <code>for</code> loop problems</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-comment">// Array.forEach function</span>
 <span class="hljs-keyword">var</span> arr = [];
 <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
   arr.push(i);
 }
 arr.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i</span>)</span>{
   setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'i'</span>, i)}, <span class="hljs-number">100</span>);
+  <span class="hljs-comment">//0 1 2  ... 9</span>
+});  <span class="hljs-comment">// **Array.forEach works well for asynchronous actions**</span>
+
+<span class="hljs-comment">// anonymous immediately invoked function</span>
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
+  (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i</span>)</span>{
+    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'i'</span>, i)}, <span class="hljs-number">100</span>);
     <span class="hljs-comment">//0 1 2  ... 9</span>
-});  <span class="hljs-comment">// **Array.forEach works well for asynchronous actions**</span></code></pre>
+  })(i);
+}</code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-26">
+  <div class="slide hidden" id="slide-27">
+    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
+<blockquote>
+<p>Variable Hoisting</p>
+</blockquote>
+<p><em>Variables can be used, before they were declared. Variable declarations (not initialization) are moved to the top of the function or global scope (hoisted). It is therefore recommended to declare the variables at the top of the function or global scope</em></p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> myvar = <span class="hljs-string">'hello outer'</span>;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myfunction</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(myvar); <span class="hljs-comment">// undefined</span>
+  <span class="hljs-keyword">var</span> myvar = <span class="hljs-string">'hello inner'</span>;
+}
+myfunction();</code></pre>
+<p><em>myfunction above is equivalent to this:</em></p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myfunction</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> myvar; <span class="hljs-comment">// declaration</span>
+  <span class="hljs-built_in">console</span>.log(myvar); <span class="hljs-comment">// undefined</span>
+  myvar = <span class="hljs-string">'hello inner'</span>; <span class="hljs-comment">// initializations</span>
+}</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-28">
+    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
+<blockquote>
+<p>NO Block Scope</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> x = <span class="hljs-string">'hallo'</span>;
+<span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 'hallo'</span>
+<span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) { <span class="hljs-comment">// block</span>
+    <span class="hljs-keyword">var</span> x = <span class="hljs-string">'welt'</span>; <span class="hljs-comment">// overwrites var x outside block</span>
+    <span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 'welt'</span>
+}
+<span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 'welt'</span></code></pre>
+<p><strong>JavaScript has function scope (no block scope)</strong></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-29">
+    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
+<blockquote>
+<p>but Function Scope</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> x = <span class="hljs-string">'hallo'</span>;
+<span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 'hallo'</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">welt</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-comment">// function scope</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) {
+      <span class="hljs-keyword">var</span> x = <span class="hljs-string">'welt'</span>; <span class="hljs-comment">// own declaration of x inside function</span>
+      <span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 'welt'</span>
+  }
+}
+welt();
+<span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 'hallo'</span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-30">
+    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
+<blockquote>
+<p>Function Scope, same in green</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> x = <span class="hljs-string">'hallo'</span>;
+<span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 'hallo'</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-comment">// function scope</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) {
+      <span class="hljs-keyword">var</span> x = <span class="hljs-string">'welt'</span>; <span class="hljs-comment">// own declaration of x inside function</span>
+      <span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 'welt'</span>
+  }
+})();
+
+<span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 'hallo'</span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-31">
+    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
+<blockquote>
+<p>Immediately-Invoked Function Expression</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-comment">// functions can be declared in brackets (function(){})</span>
+<span class="hljs-comment">// and be Immediately-Invoked with following function call ()</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hallo welt'</span>);
+})();
+
+<span class="hljs-comment">// this can be used to get function scope and alias names</span>
+<span class="hljs-comment">// often used with jQuery</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) </span>{
+  <span class="hljs-built_in">console</span>.log($(<span class="hljs-string">'body'</span>));
+}(jQuery));</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-32">
+    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
+<blockquote>
+<p>NO Dynamic Scope in JavaScript</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">repeat</span> (<span class="hljs-params">who, what</span>) </span>{
+  <span class="hljs-keyword">var</span> text = <span class="hljs-string">'said'</span>;
+  repeater(who, what);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">repeater</span>(<span class="hljs-params">who, what</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(who, text, what); <span class="hljs-comment">// ReferenceError: text is not defined</span>
+}
+<span class="hljs-comment">// the repeater function wasn't defined inside the</span>
+<span class="hljs-comment">// caller function that has the text variable defined.</span>
+repeat(<span class="hljs-string">'I'</span>, <span class="hljs-string">', hey YOU!'</span>);</code></pre>
+<p><strong>JavaScript does not support dynamic scope, where the variable resolution happens in the scope where the function is called at run time.</strong></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-33">
     <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
 <blockquote>
 <p>Lexical Scope</p>
 </blockquote>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">whoSaysWhat</span> (<span class="hljs-params">who, what</span>) </span>{
   <span class="hljs-keyword">var</span> text = <span class="hljs-string">'says'</span>;
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">say</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">say</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-comment">// inner function can access the outer scope</span>
     <span class="hljs-built_in">console</span>.log(who, text, what); <span class="hljs-comment">// text is declared in parent function</span>
   }
   say();
 }
-whoSaysWhat(<span class="hljs-string">'elephant'</span>, <span class="hljs-string">'trörööö'</span>);</code></pre>
-<p><strong>The scope of a variable is defined by its location in the source code. This is called lexical scope.</strong></p>
+whoSaysWhat(<span class="hljs-string">'elephant'</span>, <span class="hljs-string">'trörööö'</span>);  <span class="hljs-comment">// elephant says trörööö</span></code></pre>
+<p><strong>The scope of a variable is statically defined by its location in the source code (not dynamically at run time). This is called lexical scope.</strong></p>
+<p><em>Note: inner functions can access variables from outer functions.</em></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-27">
+  <div class="slide hidden" id="slide-34">
     <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
 <blockquote>
 <p>Closures</p>
@@ -854,14 +977,17 @@ whoSaysWhat(<span class="hljs-string">'elephant'</span>, <span class="hljs-strin
 <p><em>&quot;Closures are functions that refer to independent (free) variables. In other words, the function defined in the closure &#39;remembers&#39; the environment in which it was created.&quot; <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Closures">quote from mozilla</a></em></p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">repeater</span> (<span class="hljs-params">who, what</span>) </span>{
   <span class="hljs-keyword">var</span> text = <span class="hljs-string">'said'</span>;
-  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">repeat</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-comment">// inner function is returned</span>
+  <span class="hljs-comment">// inner function is returned and creates a creates closure</span>
+  <span class="hljs-comment">// where the returned function has access to the outer scope</span>
+  <span class="hljs-comment">// it was defined in, even after the outer function has terminated.</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">repeat</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-built_in">console</span>.log(who, text, what);
   }
 }
 repeater(<span class="hljs-string">'everyone'</span>, <span class="hljs-string">'yay!'</span>)();  <span class="hljs-comment">//everyone said yay!</span></code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-28">
+  <div class="slide hidden" id="slide-35">
     <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
 <blockquote>
 <p>Changing very fast, ES5, ES6, ....</p>
@@ -869,7 +995,7 @@ repeater(<span class="hljs-string">'everyone'</span>, <span class="hljs-string">
 </blockquote>
 </section>
   </div>
-  <div class="slide hidden" id="slide-29">
+  <div class="slide hidden" id="slide-36">
     <section class="slide-content"><div class="author">
   <h1 class="name">Andi Neck</h1>
     <h3 class="twitter">
