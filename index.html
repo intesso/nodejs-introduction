@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <title>node.js Introduction</title>
+  <title>node.js intro</title>
   <style type="text/css">
     body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -355,11 +355,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   font-weight: bold;
 }
 
-
-img {
-  width: 100%
-}
-
 blockquote {
   padding-left: 20px;
   margin-left: 0;
@@ -401,6 +396,10 @@ ul {
     height: 5px;
 }
 
+img {
+  width: 100%
+}
+
 body,
 .slide {
   background-color: #eee;
@@ -408,7 +407,8 @@ body,
 
 .slide-content {
   margin-top: 40px;
-  width: 1000px;
+  width: auto;
+  max-width: 1000px;
   height: 800px;
 }
   </style>
@@ -428,12 +428,13 @@ body,
   <div class="slide hidden" id="slide-2">
     <section class="slide-content"><h3 id="who-uses-node-js">who uses node.js</h3>
 <p><img src="img/used-by.png" alt="node rules the world">
-and many more ...</p>
+<em>and many more ...</em></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-3">
     <section class="slide-content"><h3 id="trend">trend</h3>
-<p><img src="img/trend.png" alt="node is trendy"></p>
+<p><img src="img/trend.png" alt="node is trendy">
+<em>2014 - January 2016</em></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-4">
@@ -444,39 +445,36 @@ and many more ...</p>
 <li>backend for mobile apps</li>
 <li>RESTful services <a href="http://restify.com/">restify</a></li>
 <li>microservices <a href="http://senecajs.org/">seneca</a></li>
-<li>desktop applications <a href="http://electron.atom.io/">electron</a></li>
-<li>commandline tools <a href="https://www.npmjs.com/package/commander">commander</a>, <a href="https://www.npmjs.com/package/minimist">minimist</a></li>
+<li>desktop applications <a href="http://electron.atom.io/">electron</a>, e.g. <a href="https://atom.io/">atom</a>, <a href="https://www.brave.com/">brave</a>, <a href="https://code.visualstudio.com/">visual studio code</a></li>
+<li>commandline tools <a href="https://docs.npmjs.com/files/package.json#bin">npm package.json bin</a>, <a href="https://www.npmjs.com/package/commander">commander</a>, <a href="https://www.npmjs.com/package/minimist">minimist</a></li>
 <li>messaging (TCP, UDP, http, https, ...) <a href="https://nodejs.org/api/">node.js api</a></li>
 <li>IoT <a href="http://cylonjs.com/">cyclon.js</a></li>
 <li>native c, c++ modules <a href="https://nodejs.org/api/addons.html">addons</a></li>
-<li>basically any I/O, Network and Web Stuff that needs parallel processing</li>
+<li>basically any I/O, Network or Web Stuff that needs asynchronous/parallel processing</li>
 </ul>
 </section>
   </div>
   <div class="slide hidden" id="slide-5">
     <section class="slide-content"><h3 id="runs-on">runs on</h3>
 <blockquote>
-<p>windows, linux, mac, arm, docker ...</p>
+<p>basically anything:</p>
+<p><strong>windows, linux, mac, arm, docker</strong> ...</p>
 </blockquote>
 <p><a href="https://nodejs.org/en/download/">go download: <a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></a></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-6">
-    <section class="slide-content"><h3 id="personal-experiences-with-node-js">personal experiences with node.js</h3>
+    <section class="slide-content"><h3 id="experiences-with-node-js-andineck-https-twitter-com-andineck-">experiences with node.js <a href="https://twitter.com/andineck">@andineck</a></h3>
 <ul>
 <li>started with v0.6</li>
 <li>v0.8, v0.12, v4.3 in production</li>
-</ul>
-<blockquote>
-<p>so far, I never experienced unexpected behaviour from node.js</p>
-</blockquote>
-<ul>
+<li>so far, I hardly ever experienced unexpected behaviour from node.js</li>
 <li>when something was not working the way I thought it should be, it was most of the time, because I didn&#39;t understand JavaScript well enough</li>
 </ul>
 </section>
   </div>
   <div class="slide hidden" id="slide-7">
-    <section class="slide-content"><h3 id="built-with-node-js-at-intesso">built with node.js at intesso</h3>
+    <section class="slide-content"><h3 id="built-with-node-js-at-intesso-http-intesso-com-">built with node.js at <a href="http://intesso.com/">intesso</a></h3>
 <ul>
 <li>Traffic Control System<ul>
 <li>Realtime UI with WebSockets (socket.io)</li>
@@ -493,7 +491,7 @@ and many more ...</p>
 </li>
 <li><a href="http://intesso.com/projects/remote-access">On demand Remote Access</a></li>
 <li>Modular Content Management System: <a href="http://glintcms.com/">GlintCMS</a>, based on <a href="https://github.com/glintapp/glintapp">GlintApp</a></li>
-<li>and many Open Source <code>npm</code> Modules: <a href="https://www.npmjs.com/~andineck">andineck</a></li>
+<li>and many Open Source npm Modules: <a href="https://www.npmjs.com/~andineck">andineck</a></li>
 </ul>
 </section>
   </div>
@@ -991,7 +989,7 @@ repeater(<span class="hljs-string">'everyone'</span>, <span class="hljs-string">
     <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
 <blockquote>
 <p>Changing very fast, ES5, ES6, ....</p>
-<p>Hard to choose the <code>right</code> Tool</p>
+<p><strong>It&#39;s hard to choose the <em>right</em> Tool</strong></p>
 </blockquote>
 </section>
   </div>

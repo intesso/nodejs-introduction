@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/intesso/nodejs-introduction/issues"
   },
-  "homepage": "https://github.com/intesso/nodejs-introduction#readme"
+  "homepage": "https://github.com/intesso/nodejs-introduction#readme",
+  "dependencies": {
+    "minimatch": "^3.0.0"
+  }
 }

@@ -1,8 +1,3 @@
-
-img {
-  width: 100%
-}
-
 blockquote {
   padding-left: 20px;
   margin-left: 0;
@@ -44,6 +39,10 @@ ul {
     height: 5px;
 }
 
+img {
+  width: 100%
+}
+
 body,
 .slide {
   background-color: #eee;
@@ -51,6 +50,7 @@ body,
 
 .slide-content {
   margin-top: 40px;
-  width: 1000px;
+  width: auto;
+  max-width: 1000px;
   height: 800px;
 }

@@ -1,4 +1,4 @@
-title: node.js Introduction
+title: node.js intro
 author:
   name: Andi Neck
   twitter: andineck
@@ -12,17 +12,20 @@ output: index.html
 --
 # node.js introduction
 
+
 > http://intesso.github.io/nodejs-introduction
 --
 ### who uses node.js
 
 ![node rules the world](img/used-by.png)
-and many more ...
+*and many more ...*
 
 --
 ### trend
 
 ![node is trendy](img/trend.png)
+*2014 - January 2016*
+
 
 --
 ### use cases
@@ -32,33 +35,31 @@ and many more ...
 - backend for mobile apps
 - RESTful services [restify](http://restify.com/)
 - microservices [seneca](http://senecajs.org/)
-- desktop applications [electron](http://electron.atom.io/)
-- commandline tools [commander](https://www.npmjs.com/package/commander), [minimist](https://www.npmjs.com/package/minimist)
+- desktop applications [electron](http://electron.atom.io/), e.g. [atom](https://atom.io/), [brave](https://www.brave.com/), [visual studio code](https://code.visualstudio.com/)
+- commandline tools [npm package.json bin](https://docs.npmjs.com/files/package.json#bin), [commander](https://www.npmjs.com/package/commander), [minimist](https://www.npmjs.com/package/minimist)
 - messaging (TCP, UDP, http, https, ...) [node.js api](https://nodejs.org/api/)
 - IoT [cyclon.js](http://cylonjs.com/)
 - native c, c++ modules [addons](https://nodejs.org/api/addons.html)
-- basically any I/O, Network and Web Stuff that needs parallel processing
+- basically any I/O, Network or Web Stuff that needs asynchronous/parallel processing
 
 --
 ### runs on
-> windows, linux, mac, arm, docker ...
-
-
+> basically anything:
+>
+> **windows, linux, mac, arm, docker** ...
 
 [go download: https://nodejs.org/en/download/](https://nodejs.org/en/download/)
 
 --
-### personal experiences with node.js
+### experiences with node.js [@andineck](https://twitter.com/andineck)
 
 - started with v0.6
 - v0.8, v0.12, v4.3 in production
-
-> so far, I never experienced unexpected behaviour from node.js
-
+- so far, I hardly ever experienced unexpected behaviour from node.js
 - when something was not working the way I thought it should be, it was most of the time, because I didn't understand JavaScript well enough
 
 --
-### built with node.js at intesso
+### built with node.js at [intesso](http://intesso.com/)
 
 - Traffic Control System
   - Realtime UI with WebSockets (socket.io)
@@ -71,7 +72,7 @@ and many more ...
   - Admin Web UI
 - [On demand Remote Access](http://intesso.com/projects/remote-access)
 - Modular Content Management System: [GlintCMS](http://glintcms.com/), based on [GlintApp](https://github.com/glintapp/glintapp)
-- and many Open Source `npm` Modules: [andineck](https://www.npmjs.com/~andineck)
+- and many Open Source npm Modules: [andineck](https://www.npmjs.com/~andineck)
 
 
 --
@@ -284,7 +285,7 @@ add(1, function(i){
 });
 ```
 
-**Ways out: name and reference functions, use libraries like [async](https://github.com/caolan/async), modularize**
+**Ways out: name and reference functions, use libraries like [async](https://github.com/caolan/async), [run-series](https://www.npmjs.com/package/run-series), [run-parallel](https://www.npmjs.com/package/run-parallel) and modularize your stuff**
 
 --
 ### js obstacles
@@ -575,4 +576,4 @@ repeater('everyone', 'yay!')();  //everyone said yay!
 
 > Changing very fast, ES5, ES6, ....
 >
-> Hard to choose the `right` Tool
+> **It's hard to choose the *right* Tool**
