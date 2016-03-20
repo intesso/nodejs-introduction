@@ -14,6 +14,14 @@ output: index.html
 
 
 > http://intesso.github.io/nodejs-introduction
+
+--
+### what is node.js
+
+> "Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world."
+>
+> Source: https://nodejs.org/en/
+
 --
 ### who uses node.js
 
@@ -146,16 +154,29 @@ but how?
 - [WebStorm](https://www.jetbrains.com/webstorm/download/)
 - [nodeclipse](http://www.nodeclipse.org/)
 
+**pick whatever you like!**
 
 --
 ### debugging
 
-> [debugging node.js](http://spin.atomicobject.com/2015/09/25/debug-node-js/)
+> [debugging node.js](http://spin.atomicobject.com/2015/09/25/debug-node-js/) within IDE or with [node-inspector](https://www.npmjs.com/package/node-inspector)
 
-[tools for restarting node.js server automatically](https://strongloop.com/strongblog/comparison-tools-to-automate-restarting-node-js-server-after-code-changes-forever-nodemon-nodesupervisor-nodedev/)
+```sh
+# install once
+npm install -g node-inspector
+# use
+node-debug myapp.js
+```
 
-> reload node.js server automatically with [nodemon](http://nodemon.io/) or [forever]()
+> [restarting node.js server on code changes](https://strongloop.com/strongblog/comparison-tools-to-automate-restarting-node-js-server-after-code-changes-forever-nodemon-nodesupervisor-nodedev/)
+> use [nodemon](http://nodemon.io/) or [forever]()
 
+```sh
+# install once
+npm install -g nodemon
+# use
+nodemon myapp.js
+```
 --
 ### coding
 
@@ -221,22 +242,6 @@ npm install workshopper -g
 npm install adventure -g
 npm install functional-javascript-workshop -g
 ```
-
-
---
-### JavaScript / ECMAScript / node.js Versions
-
-- ES5 node.js < 0.x
-- ES6 (ECMAScript 2015) io.js, node.js >= 0.x
-
-**node.js releases**
-- LTS: long term support (even numbers)
-  - current release: V4 "Argon"
-  - actively maintained for 18 month, maintenance mode afterwards
-  - no more than two LTS versions at the same time
-- Stable: shorter lifespan, more updates (odd numbers)
-  - current release: V5
-  - when Stable release becomes the next LTS, no new features or breaking changes are added
 
 --
 ### js obstacles
@@ -442,6 +447,27 @@ function myfunction () {
 --
 ### js obstacles
 
+> Function Hoisting
+
+*Function definitions are also hoisted, Function declarations `var myfunc = function(){}` are NOT hoisted.*
+
+```js
+hoisted(); // works
+notHoisted(); // TypeError: notHoisted is not a function
+noHoist(); // ReferenceError: noHoist is not defined
+
+function hoisted(){
+  console.log('hoisted');
+}
+
+var notHoisted = function noHoist(){
+  console.log('notHoisted');
+}
+```
+
+--
+### js obstacles
+
 > NO Block Scope
 
 ```js
@@ -574,6 +600,24 @@ repeater('everyone', 'yay!')();  //everyone said yay!
 --
 ### js obstacles
 
-> Changing very fast, ES5, ES6, ....
->
-> **It's hard to choose the *right* Tool**
+> different JavaScript / ECMAScript / node.js Versions
+
+- ES5 :: node.js < 0.x :: [caniuse +](http://caniuse.com/#search=es5)
+- ES6 (ECMAScript 2015) io.js, node.js >= 0.x, [caniuse ~](http://caniuse.com/#search=es6)
+
+**node.js releases**
+- LTS: long term support (even numbers)
+  - current release: V4 "Argon"
+  - actively maintained for 18 month, maintenance mode afterwards
+  - no more than two LTS versions at the same time
+- Stable: shorter lifespan, more updates (odd numbers)
+  - current release: V5
+  - when Stable release becomes the next LTS, no new features or breaking changes are added
+
+
+--
+### js obstacles
+
+> - Changing very fast ....
+> - Many tools/frameworks to pick from
+> - **It's hard to choose the *right* Tool**
