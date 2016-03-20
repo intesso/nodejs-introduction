@@ -602,8 +602,8 @@ repeater('everyone', 'yay!')();  //everyone said yay!
 
 > different JavaScript / ECMAScript / node.js Versions
 
-- ES5 :: node.js < 0.x :: [caniuse +](http://caniuse.com/#search=es5)
-- ES6 (ECMAScript 2015) io.js, node.js >= 0.x, [caniuse ~](http://caniuse.com/#search=es6)
+- ES5 :: node.js < 0.x :: [browser caniuse +](http://caniuse.com/#search=es5)
+- ES6 (ECMAScript 2015) :: io.js, node.js >= 0.x :: [browser caniuse ~](http://caniuse.com/#search=es6)
 
 **node.js releases**
 - LTS: long term support (even numbers)
