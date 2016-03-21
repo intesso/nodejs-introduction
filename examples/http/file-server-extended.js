@@ -1,5 +1,6 @@
 var http = require('http');
 var fs = require('fs');
+var path = require('path');
 var marked = require('marked');
 var minimatch = require('minimatch');
 
@@ -40,6 +41,11 @@ server.on('request', function(req, res) {
   });
 
 });
+
+function readDirSorted(basePath, path){
+  var p = path.join(basePath, path);
+  
+}
 
 server.listen(8000);
 console.log('fileserver running at: http://localhost:8000');

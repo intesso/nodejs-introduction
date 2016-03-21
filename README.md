@@ -136,12 +136,13 @@ but how?
 --
 ### more node.js building blocks
 
-> - node.js is built on top of google chrome V8
-> - Microsoft submitted a [pull request](https://blogs.windows.com/msedgedev/2016/01/19/nodejs-chakracore-mainline/) for support with it's ChakraCore in January 2016
-
 - [module system](https://nodejs.org/api/modules.html)
 - [events](https://nodejs.org/api/events.html)
 - [streams](https://nodejs.org/api/stream.html)
+
+**what's underneath**
+> - node.js is built on top of google chrome V8
+> - Microsoft submitted a [pull request](https://blogs.windows.com/msedgedev/2016/01/19/nodejs-chakracore-mainline/) for support with it's ChakraCore in January 2016
 
 --
 ### editors
@@ -602,8 +603,8 @@ repeater('everyone', 'yay!')();  //everyone said yay!
 
 > different JavaScript / ECMAScript / node.js Versions
 
-- ES5 :: node.js < 0.x :: [browser caniuse +](http://caniuse.com/#search=es5)
-- ES6 (ECMAScript 2015) :: io.js, node.js >= 0.x :: [browser caniuse ~](http://caniuse.com/#search=es6)
+- ES5 :: **node.js** <= 0.x :: [**browser** caniuse +](http://caniuse.com/#search=es5)
+- ES6 (ECMAScript 2015) :: **io.js, node.js** > 0.x :: [**browser** caniuse ~](http://caniuse.com/#search=es6)
 
 **node.js releases**
 - LTS: long term support (even numbers)
@@ -620,4 +621,4 @@ repeater('everyone', 'yay!')();  //everyone said yay!
 
 > - Changing very fast ....
 > - Many tools/frameworks to pick from
-> - **It's hard to choose the *right* Tool**
+> - **It's hard to choose the *right* Tool** for the job
