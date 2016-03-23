@@ -3,7 +3,7 @@ author:
   name: Andi Neck
   twitter: andineck
   url: http://intesso.com
-controls: false
+controls: true
 progress: true
 style: style.css
 output: index.html
