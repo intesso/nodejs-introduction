@@ -21,5 +21,9 @@
   "homepage": "https://github.com/intesso/nodejs-introduction#readme",
   "dependencies": {
     "minimatch": "^3.0.0"
+  },
+  "devDependencies": {
+    "cleaver": "^0.8.2",
+    "live-server": "^1.1.0"
   }
 }

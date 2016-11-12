@@ -411,6 +411,36 @@ body,
   max-width: 1000px;
   height: 800px;
 }
+
+.arrow {
+    width: 0;
+    height: 0;
+    border: 30px solid #ddd;
+    float: left;
+    margin-right: 30px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.prev {
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-left-width: 0;
+    border-right-width: 50px;
+}
+
+.next {
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-left-width: 50px;
+    border-right-width: 0;
+}
   </style>
 </head>
 <body>
@@ -423,6 +453,7 @@ body,
 <blockquote>
 <p><a href="http://intesso.github.io/nodejs-introduction">http://intesso.github.io/nodejs-introduction</a></p>
 </blockquote>
+<p><em>navigate with left, right keys</em></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-2">
@@ -440,23 +471,22 @@ body,
 </section>
   </div>
   <div class="slide hidden" id="slide-4">
-    <section class="slide-content"><h3 id="trend">trend</h3>
-<p><img src="img/trend.png" alt="node is trendy">
-<em>2014 - January 2016</em></p>
+    <section class="slide-content"><h3 id="trend-jan-2014-nov-2016-">trend ( <em>jan-2014 - nov-2016</em> )</h3>
+<p><img src="img/trend.png" alt="node is trendy"></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-5">
     <section class="slide-content"><h3 id="use-cases">use cases</h3>
 <ul>
 <li>build chain <a href="http://gulpjs.com/">gulp</a>, <a href="http://gruntjs.com/">grunt</a>: compile, lint, bundle, etc...</li>
-<li>website / webapp <a href="http://expressjs.com/">express</a> <a href="http://hapijs.com/">hapijs</a></li>
+<li>website / webapp <a href="http://expressjs.com/">express</a>, <a href="http://hapijs.com/">hapijs</a></li>
 <li>backend for mobile apps</li>
 <li>RESTful services <a href="http://restify.com/">restify</a></li>
 <li>microservices <a href="http://senecajs.org/">seneca</a></li>
 <li>desktop applications <a href="http://electron.atom.io/">electron</a>, e.g. <a href="https://atom.io/">atom</a>, <a href="https://www.brave.com/">brave</a>, <a href="https://code.visualstudio.com/">visual studio code</a></li>
 <li>commandline tools <a href="https://docs.npmjs.com/files/package.json#bin">npm package.json bin</a>, <a href="https://www.npmjs.com/package/commander">commander</a>, <a href="https://www.npmjs.com/package/minimist">minimist</a></li>
 <li>messaging (TCP, UDP, http, https, ...) <a href="https://nodejs.org/api/">node.js api</a></li>
-<li>IoT <a href="http://cylonjs.com/">cyclon.js</a></li>
+<li>IoT <a href="https://nodered.org/">Node-RED</a>, <a href="http://cylonjs.com/">cyclon.js</a></li>
 <li>native c, c++ modules <a href="https://nodejs.org/api/addons.html">addons</a></li>
 <li>basically any I/O, Network or Web Stuff that needs asynchronous/parallel processing</li>
 </ul>
@@ -1012,13 +1042,13 @@ repeater(<span class="hljs-string">'everyone'</span>, <span class="hljs-string">
 <p><strong>node.js releases</strong></p>
 <ul>
 <li>LTS: long term support (even numbers)<ul>
-<li>current release: V4 &quot;Argon&quot;</li>
+<li>current release (Nov 2016): V6 &quot;Boron&quot;</li>
 <li>actively maintained for 18 month, maintenance mode afterwards</li>
 <li>no more than two LTS versions at the same time</li>
 </ul>
 </li>
 <li>Stable: shorter lifespan, more updates (odd numbers)<ul>
-<li>current release: V5</li>
+<li>current release (Nov 2016): V7</li>
 <li>when Stable release becomes the next LTS, no new features or breaking changes are added</li>
 </ul>
 </li>
@@ -1036,7 +1066,7 @@ repeater(<span class="hljs-string">'everyone'</span>, <span class="hljs-string">
 </blockquote>
 </section>
   </div>
-  <div class="slide hidden" id="slide-38">
+  <div class="slide hidden author-slide" id="slide-38">
     <section class="slide-content"><div class="author">
   <h1 class="name">Andi Neck</h1>
     <h3 class="twitter">
@@ -1049,6 +1079,10 @@ repeater(<span class="hljs-string">'everyone'</span>, <span class="hljs-string">
 </section>
   </div>
 
+  <div class="controls">
+    <div class="arrow prev"></div>
+    <div class="arrow next"></div>
+  </div>
 
 
   <script type="text/javascript">
@@ -1087,7 +1121,11 @@ function navigate(n) {
  * Updates the current URL to include a hashtag of the current page number.
  */
 function updateURL() {
-  window.history.replaceState({} , null, '#' + currentPosition());
+  try {
+    window.history.replaceState({} , null, '#' + currentPosition());
+  } catch (e) {
+    window.location.hash = currentPosition();
+  }
 }
 
 

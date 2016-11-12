@@ -15,6 +15,8 @@ output: index.html
 
 > http://intesso.github.io/nodejs-introduction
 
+*navigate with left, right keys*
+
 --
 ### what is node.js
 
@@ -29,24 +31,23 @@ output: index.html
 *and many more ...*
 
 --
-### trend
+### trend ( *jan-2014 - nov-2016* )
 
 ![node is trendy](img/trend.png)
-*2014 - January 2016*
 
 
 --
 ### use cases
 
 - build chain [gulp](http://gulpjs.com/), [grunt](http://gruntjs.com/): compile, lint, bundle, etc...
-- website / webapp [express](http://expressjs.com/) [hapijs](http://hapijs.com/)
+- website / webapp [express](http://expressjs.com/), [hapijs](http://hapijs.com/)
 - backend for mobile apps
 - RESTful services [restify](http://restify.com/)
 - microservices [seneca](http://senecajs.org/)
 - desktop applications [electron](http://electron.atom.io/), e.g. [atom](https://atom.io/), [brave](https://www.brave.com/), [visual studio code](https://code.visualstudio.com/)
 - commandline tools [npm package.json bin](https://docs.npmjs.com/files/package.json#bin), [commander](https://www.npmjs.com/package/commander), [minimist](https://www.npmjs.com/package/minimist)
 - messaging (TCP, UDP, http, https, ...) [node.js api](https://nodejs.org/api/)
-- IoT [cyclon.js](http://cylonjs.com/)
+- IoT [Node-RED](https://nodered.org/), [cyclon.js](http://cylonjs.com/)
 - native c, c++ modules [addons](https://nodejs.org/api/addons.html)
 - basically any I/O, Network or Web Stuff that needs asynchronous/parallel processing
 
@@ -608,11 +609,11 @@ repeater('everyone', 'yay!')();  //everyone said yay!
 
 **node.js releases**
 - LTS: long term support (even numbers)
-  - current release: V4 "Argon"
+  - current release (Nov 2016): V6 "Boron"
   - actively maintained for 18 month, maintenance mode afterwards
   - no more than two LTS versions at the same time
 - Stable: shorter lifespan, more updates (odd numbers)
-  - current release: V5
+  - current release (Nov 2016): V7
   - when Stable release becomes the next LTS, no new features or breaking changes are added
 
 
