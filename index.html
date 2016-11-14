@@ -535,7 +535,10 @@ body,
 <li>that includes everyone: developers, organizations, ...</li>
 <li>under the umbrella of the linux foundation</li>
 </ul>
-<h3 id="node-js-releases">node.js releases</h3>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-9">
+    <section class="slide-content"><h3 id="node-js-releases">node.js releases</h3>
 <ul>
 <li>LTS: long term support (even numbers)<ul>
 <li>current release (Nov 2016): V6 &quot;Boron&quot;</li>
@@ -551,7 +554,7 @@ body,
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-9">
+  <div class="slide hidden" id="slide-10">
     <section class="slide-content"><h3 id="how-was-node-js-started-">how was node.js started?</h3>
 <p><strong>Ryan Dahls thesis</strong></p>
 <blockquote>
@@ -560,7 +563,7 @@ body,
 </blockquote>
 </section>
   </div>
-  <div class="slide hidden" id="slide-10">
+  <div class="slide hidden" id="slide-11">
     <section class="slide-content"><h3 id="the-cost-of-i-o">the cost of i/o</h3>
 <pre><code>  L1-cache           3 cycles
 
@@ -580,13 +583,13 @@ body,
 </blockquote>
 </section>
   </div>
-  <div class="slide hidden" id="slide-11">
+  <div class="slide hidden" id="slide-12">
     <section class="slide-content"><h3 id="event-loop">event-loop</h3>
 <p><img src="img/node-threading.png" alt="single-threaded-code">
 <a href="https://strongloop.com/strongblog/node-js-performance-event-loop-monitoring/">source: <a href="https://strongloop.com/strongblog/node-js-performance-event-loop-monitoring/">https://strongloop.com/strongblog/node-js-performance-event-loop-monitoring/</a></a></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-12">
+  <div class="slide hidden" id="slide-13">
     <section class="slide-content"><h3 id="event-loop">event-loop</h3>
 <ul>
 <li>your code is single threaded, basically everything else runs in parallel</li>
@@ -596,7 +599,7 @@ body,
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-13">
+  <div class="slide hidden" id="slide-14">
     <section class="slide-content"><h3 id="more-node-js-building-blocks">more node.js building blocks</h3>
 <ul>
 <li><a href="https://nodejs.org/api/modules.html">module system</a></li>
@@ -612,7 +615,7 @@ body,
 </blockquote>
 </section>
   </div>
-  <div class="slide hidden" id="slide-14">
+  <div class="slide hidden" id="slide-15">
     <section class="slide-content"><h3 id="editors">editors</h3>
 <ul>
 <li><a href="http://code.visualstudio.com/">visual studio code</a></li>
@@ -627,7 +630,7 @@ body,
 <p><strong>pick whatever you like!</strong></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-15">
+  <div class="slide hidden" id="slide-16">
     <section class="slide-content"><h3 id="debugging">debugging</h3>
 <blockquote>
 <p><a href="http://spin.atomicobject.com/2015/09/25/debug-node-js/">debugging node.js</a> within IDE or with <a href="https://www.npmjs.com/package/node-inspector">node-inspector</a> or with node &gt;= 6</p>
@@ -648,7 +651,7 @@ npm install -g nodemon
 nodemon myapp.js</code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-16">
+  <div class="slide hidden" id="slide-17">
     <section class="slide-content"><h3 id="coding">coding</h3>
 <blockquote>
 <p>file server</p>
@@ -668,7 +671,7 @@ server.listen(<span class="hljs-number">8000</span>);
 <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'fileserver running at: http://localhost:8000'</span>);</code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-17">
+  <div class="slide hidden" id="slide-18">
     <section class="slide-content"><h3 id="coding">coding</h3>
 <blockquote>
 <p>using EventEmitter</p>
@@ -695,7 +698,7 @@ server.listen(<span class="hljs-number">8000</span>);
 <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'fileserver running at: http://localhost:8000'</span>);</code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-18">
+  <div class="slide hidden" id="slide-19">
     <section class="slide-content"><h3 id="learning-learning-learning-">learning, learning, learning...</h3>
 <ul>
 <li>node.js <a href="https://nodejs.org/api/">api</a></li>
@@ -710,16 +713,6 @@ server.listen(<span class="hljs-number">8000</span>);
 npm install workshopper -g
 npm install adventure -g
 npm install functional-javascript-workshop -g</code></pre>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-19">
-    <section class="slide-content"><h3 id="personal-experiences-with-node-js-andineck-https-twitter-com-andineck-">personal experiences with node.js <a href="https://twitter.com/andineck">@andineck</a></h3>
-<ul>
-<li>started with v0.6</li>
-<li>v0.8, v0.12, v4.3 in production</li>
-<li>so far, I hardly ever experienced unexpected behaviour from node.js</li>
-<li>when something was not working the way I thought it should be, it was most of the time, because I didn&#39;t understand JavaScript well enough</li>
-</ul>
 </section>
   </div>
   <div class="slide hidden" id="slide-20">
@@ -744,7 +737,20 @@ npm install functional-javascript-workshop -g</code></pre>
 </ul>
 </section>
   </div>
-  <div class="slide hidden author-slide" id="slide-21">
+  <div class="slide hidden" id="slide-21">
+    <section class="slide-content"><h3 id="personal-experiences-with-node-js-andineck-https-twitter-com-andineck-">personal experiences with node.js <a href="https://twitter.com/andineck">@andineck</a></h3>
+<ul>
+<li>started with v0.6</li>
+<li>v0.8, v0.12, v4.3 in production</li>
+<li>so far, I hardly ever experienced unexpected behaviour from node.js</li>
+<li>when something was not working the way I thought it should be, it was most of the time, because I didn&#39;t understand JavaScript well enough</li>
+</ul>
+<blockquote>
+<p>see also: <a href="http://intesso.github.io/javascript-obstacles">http://intesso.github.io/javascript-obstacles</a></p>
+</blockquote>
+</section>
+  </div>
+  <div class="slide hidden author-slide" id="slide-22">
     <section class="slide-content"><div class="author">
   <h1 class="name">Andi Neck</h1>
     <h3 class="twitter">

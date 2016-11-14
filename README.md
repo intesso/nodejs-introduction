@@ -8,7 +8,6 @@ progress: true
 style: style.css
 output: index.html
 
-
 --
 # node.js introduction
 
@@ -81,6 +80,7 @@ output: index.html
 - that includes everyone: developers, organizations, ...
 - under the umbrella of the linux foundation
 
+--
 ### node.js releases
 
 - LTS: long term support (even numbers)
@@ -181,6 +181,7 @@ npm install -g nodemon
 # use
 nodemon myapp.js
 ```
+
 --
 ### coding
 
@@ -248,14 +249,6 @@ npm install functional-javascript-workshop -g
 ```
 
 --
-### personal experiences with node.js [@andineck](https://twitter.com/andineck)
-
-- started with v0.6
-- v0.8, v0.12, v4.3 in production
-- so far, I hardly ever experienced unexpected behaviour from node.js
-- when something was not working the way I thought it should be, it was most of the time, because I didn't understand JavaScript well enough
-
---
 ### built with node.js at [intesso](http://intesso.com/)
 
 - Traffic Control System
@@ -270,3 +263,13 @@ npm install functional-javascript-workshop -g
 - [On demand Remote Access](http://intesso.com/projects/remote-access)
 - Modular Content Management System: [GlintCMS](http://glintcms.com/), based on [GlintApp](https://github.com/glintapp/glintapp)
 - and many Open Source npm Modules: [andineck](https://www.npmjs.com/~andineck)
+
+--
+### personal experiences with node.js [@andineck](https://twitter.com/andineck)
+
+- started with v0.6
+- v0.8, v0.12, v4.3 in production
+- so far, I hardly ever experienced unexpected behaviour from node.js
+- when something was not working the way I thought it should be, it was most of the time, because I didn't understand JavaScript well enough
+
+> see also: http://intesso.github.io/javascript-obstacles
