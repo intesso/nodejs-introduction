@@ -1,8 +1,7 @@
 {
   "name": "nodejs-introduction",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "node.js Introduction",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node_modules/.bin/cleaver README.md",
@@ -14,14 +13,11 @@
     "url": "git+https://github.com/intesso/nodejs-introduction.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/intesso/nodejs-introduction/issues"
   },
   "homepage": "https://github.com/intesso/nodejs-introduction#readme",
-  "dependencies": {
-    "minimatch": "^3.0.0"
-  },
   "devDependencies": {
     "cleaver": "^0.8.2",
     "live-server": "^1.1.0"

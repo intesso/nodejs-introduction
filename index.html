@@ -370,22 +370,22 @@ blockquote p {
 }
 
 p {
-    display: block;
-    -webkit-margin-before: 0.9em;
-    -webkit-margin-after: 0.9em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
+  display: block;
+  -webkit-margin-before: 0.9em;
+  -webkit-margin-after: 0.9em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
 }
 
 pre {
-    font-size: 90%;
-    line-height: 1.2;
+  font-size: 90%;
+  line-height: 1.2;
 }
 
 ul {
-    padding: 0 0 0 40px;
-    font-weight: 200;
-    line-height: 1.6;
+  padding: 0 0 0 40px;
+  font-weight: 200;
+  line-height: 1.6;
 }
 
 .progress {
@@ -393,7 +393,7 @@ ul {
 }
 
 .progress-bar {
-    height: 5px;
+  height: 5px;
 }
 
 img {
@@ -406,42 +406,51 @@ body,
 }
 
 .slide-content {
-  margin-top: 40px;
+  margin-top: 20px;
   width: auto;
   max-width: 1000px;
-  height: 800px;
+  height: auto;
+  overflow: auto;
+  z-index: 1;
+}
+
+.controls {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
 }
 
 .arrow {
-    width: 0;
-    height: 0;
-    border: 30px solid #ddd;
-    float: left;
-    margin-right: 30px;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  width: 0;
+  height: 0;
+  border: 30px solid #ddd;
+  float: left;
+  margin-right: 30px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .prev {
-    border-top-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-    border-left-width: 0;
-    border-right-width: 50px;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-left-width: 0;
+  border-right-width: 50px;
 }
 
 .next {
-    border-top-color: transparent;
-    border-bottom-color: transparent;
-    border-right-color: transparent;
-    border-left-width: 50px;
-    border-right-width: 0;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-left-width: 50px;
+  border-right-width: 0;
 }
   </style>
+    <script async src="http://localhost:35729/livereload.js"></script>
 </head>
 <body>
     <div class="progress">
@@ -502,59 +511,58 @@ body,
 </section>
   </div>
   <div class="slide hidden" id="slide-7">
-    <section class="slide-content"><h3 id="experiences-with-node-js-andineck-https-twitter-com-andineck-">experiences with node.js <a href="https://twitter.com/andineck">@andineck</a></h3>
-<ul>
-<li>started with v0.6</li>
-<li>v0.8, v0.12, v4.3 in production</li>
-<li>so far, I hardly ever experienced unexpected behaviour from node.js</li>
-<li>when something was not working the way I thought it should be, it was most of the time, because I didn&#39;t understand JavaScript well enough</li>
-</ul>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-8">
-    <section class="slide-content"><h3 id="built-with-node-js-at-intesso-http-intesso-com-">built with node.js at <a href="http://intesso.com/">intesso</a></h3>
-<ul>
-<li>Traffic Control System<ul>
-<li>Realtime UI with WebSockets (socket.io)</li>
-<li>TCP/XML Interfaces</li>
-</ul>
-</li>
-<li>Intelligent Charging Station<ul>
-<li>Communication with OSGI bundle via 0mq</li>
-<li>binding with python code with zerorpc</li>
-<li>SOAP WebService Interfaces</li>
-<li>Proprietary Binary Interface with Charging Station</li>
-<li>Admin Web UI</li>
-</ul>
-</li>
-<li><a href="http://intesso.com/projects/remote-access">On demand Remote Access</a></li>
-<li>Modular Content Management System: <a href="http://glintcms.com/">GlintCMS</a>, based on <a href="https://github.com/glintapp/glintapp">GlintApp</a></li>
-<li>and many Open Source npm Modules: <a href="https://www.npmjs.com/~andineck">andineck</a></li>
-</ul>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-9">
     <section class="slide-content"><h3 id="what-makes-node-js-stand-out-">what makes node.js stand out?</h3>
 <ul>
 <li>same language on the server and the browser</li>
 <li>excellent module system <a href="https://www.npmjs.com/">npm</a></li>
-<li>more than 230&#39;000 npm modules</li>
+<li>more than <ul>
+<li>230&#39;000 npm modules (Jan 2016)</li>
+<li>350&#39;000 npm modules (Nov 2016)</li>
+</ul>
+</li>
 <li>quite good open source communities</li>
 <li>part of the linux foundation</li>
 <li>and there is more ...</li>
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-10">
-    <section class="slide-content"><h3 id="node-js-thesis">node.js thesis</h3>
+  <div class="slide hidden" id="slide-8">
+    <section class="slide-content"><h3 id="what-is-was-io-js-">what is (was) io.js?</h3>
+<ul>
+<li>a fork of node.js</li>
+<li>because developers were not happy with the stewardship of <a href="https://www.joyent.com/">joyent</a></li>
+<li>that was merged in September 2015 into node.js 4.0</li>
+<li>it lead to a well governed OSS projects</li>
+<li>that includes everyone: developers, organizations, ...</li>
+<li>under the umbrella of the linux foundation</li>
+</ul>
+<h3 id="node-js-releases">node.js releases</h3>
+<ul>
+<li>LTS: long term support (even numbers)<ul>
+<li>current release (Nov 2016): V6 &quot;Boron&quot;</li>
+<li>actively maintained for 18 month, maintenance mode afterwards</li>
+<li>no more than two LTS versions at the same time</li>
+</ul>
+</li>
+<li>Stable: shorter lifespan, more updates (odd numbers)<ul>
+<li>current release (Nov 2016): V7</li>
+<li>when Stable release becomes the next LTS, no new features or breaking changes are added</li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-9">
+    <section class="slide-content"><h3 id="how-was-node-js-started-">how was node.js started?</h3>
+<p><strong>Ryan Dahls thesis</strong></p>
 <blockquote>
 <p>io needs to be done differently</p>
 <p><a href="https://youtu.be/ztspvPYybIY?t=48">original node.js presentation by Ryan Dahl</a></p>
 </blockquote>
 </section>
   </div>
-  <div class="slide hidden" id="slide-11">
-    <section class="slide-content"><h3 id="the-cost-of-i-o">The cost of I/O</h3>
+  <div class="slide hidden" id="slide-10">
+    <section class="slide-content"><h3 id="the-cost-of-i-o">the cost of i/o</h3>
 <pre><code>  L1-cache           3 cycles
 
   L2-cache          14 cycles
@@ -573,13 +581,13 @@ body,
 </blockquote>
 </section>
   </div>
-  <div class="slide hidden" id="slide-12">
+  <div class="slide hidden" id="slide-11">
     <section class="slide-content"><h3 id="event-loop">event-loop</h3>
 <p><img src="img/node-threading.png" alt="single-threaded-code">
 <a href="https://strongloop.com/strongblog/node-js-performance-event-loop-monitoring/">source: <a href="https://strongloop.com/strongblog/node-js-performance-event-loop-monitoring/">https://strongloop.com/strongblog/node-js-performance-event-loop-monitoring/</a></a></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-13">
+  <div class="slide hidden" id="slide-12">
     <section class="slide-content"><h3 id="event-loop">event-loop</h3>
 <ul>
 <li>your code is single threaded, basically everything else runs in parallel</li>
@@ -589,7 +597,7 @@ body,
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-14">
+  <div class="slide hidden" id="slide-13">
     <section class="slide-content"><h3 id="more-node-js-building-blocks">more node.js building blocks</h3>
 <ul>
 <li><a href="https://nodejs.org/api/modules.html">module system</a></li>
@@ -605,9 +613,10 @@ body,
 </blockquote>
 </section>
   </div>
-  <div class="slide hidden" id="slide-15">
+  <div class="slide hidden" id="slide-14">
     <section class="slide-content"><h3 id="editors">editors</h3>
 <ul>
+<li><a href="http://code.visualstudio.com/">visual studio code</a></li>
 <li><a href="https://atom.io/">atom</a></li>
 <li><a href="http://brackets.io/">brackets</a></li>
 <li><a href="http://www.sublimetext.com/3">sublimetext</a></li>
@@ -619,18 +628,20 @@ body,
 <p><strong>pick whatever you like!</strong></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-16">
+  <div class="slide hidden" id="slide-15">
     <section class="slide-content"><h3 id="debugging">debugging</h3>
 <blockquote>
-<p><a href="http://spin.atomicobject.com/2015/09/25/debug-node-js/">debugging node.js</a> within IDE or with <a href="https://www.npmjs.com/package/node-inspector">node-inspector</a></p>
+<p><a href="http://spin.atomicobject.com/2015/09/25/debug-node-js/">debugging node.js</a> within IDE or with <a href="https://www.npmjs.com/package/node-inspector">node-inspector</a> or with node &gt;= 6</p>
 </blockquote>
 <pre><code class="lang-sh"><span class="hljs-comment"># install once</span>
 npm install -g node-inspector
 <span class="hljs-comment"># use</span>
-node-debug myapp.js</code></pre>
+node-debug myapp.js
+<span class="hljs-comment"># chrome inspector included with node &gt;= 6.0</span>
+node --inspect myapp.js</code></pre>
 <blockquote>
 <p><a href="https://strongloop.com/strongblog/comparison-tools-to-automate-restarting-node-js-server-after-code-changes-forever-nodemon-nodesupervisor-nodedev/">restarting node.js server on code changes</a>
-use <a href="http://nodemon.io/">nodemon</a> or <a href="">forever</a></p>
+use <a href="http://nodemon.io/">nodemon</a> or <a href="https://www.npmjs.com/package/forever">forever</a></p>
 </blockquote>
 <pre><code class="lang-sh"><span class="hljs-comment"># install once</span>
 npm install -g nodemon
@@ -638,7 +649,7 @@ npm install -g nodemon
 nodemon myapp.js</code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-17">
+  <div class="slide hidden" id="slide-16">
     <section class="slide-content"><h3 id="coding">coding</h3>
 <blockquote>
 <p>file server</p>
@@ -658,7 +669,7 @@ server.listen(<span class="hljs-number">8000</span>);
 <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'fileserver running at: http://localhost:8000'</span>);</code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-18">
+  <div class="slide hidden" id="slide-17">
     <section class="slide-content"><h3 id="coding">coding</h3>
 <blockquote>
 <p>using EventEmitter</p>
@@ -685,7 +696,7 @@ server.listen(<span class="hljs-number">8000</span>);
 <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'fileserver running at: http://localhost:8000'</span>);</code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-19">
+  <div class="slide hidden" id="slide-18">
     <section class="slide-content"><h3 id="learning-learning-learning-">learning, learning, learning...</h3>
 <ul>
 <li>node.js <a href="https://nodejs.org/api/">api</a></li>
@@ -702,371 +713,39 @@ npm install adventure -g
 npm install functional-javascript-workshop -g</code></pre>
 </section>
   </div>
+  <div class="slide hidden" id="slide-19">
+    <section class="slide-content"><h3 id="personal-experiences-with-node-js-andineck-https-twitter-com-andineck-">personal experiences with node.js <a href="https://twitter.com/andineck">@andineck</a></h3>
+<ul>
+<li>started with v0.6</li>
+<li>v0.8, v0.12, v4.3 in production</li>
+<li>so far, I hardly ever experienced unexpected behaviour from node.js</li>
+<li>when something was not working the way I thought it should be, it was most of the time, because I didn&#39;t understand JavaScript well enough</li>
+</ul>
+</section>
+  </div>
   <div class="slide hidden" id="slide-20">
-    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
-<blockquote>
-<p>Callback Functions</p>
-</blockquote>
-<pre><code class="lang-js"><span class="hljs-comment">// dom stuff</span>
-<span class="hljs-keyword">var</span> body = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'body'</span>);
-
-<span class="hljs-comment">// event listener</span>
-body.addEventListener(<span class="hljs-string">'click'</span>, myCallback);
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myCallback</span>(<span class="hljs-params">e</span>) </span>{
-  confirm(<span class="hljs-string">"DONT CLICK!"</span>);
-}
-
-<span class="hljs-comment">// same in green, but with nested function</span>
-body.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myCallback</span>(<span class="hljs-params">e</span>) </span>{
-  confirm(<span class="hljs-string">"DONT CLICK!"</span>);
-});</code></pre>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-21">
-    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
-<blockquote>
-<p><a href="http://callbackhell.com/">Callback Hell</a> is when your code looks like this</p>
-</blockquote>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">i, callback</span>) </span>{
-  i = i+<span class="hljs-number">1</span>;
-  setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'count'</span>, i);
-    callback(i);
-  }, <span class="hljs-number">100</span>);
-}
-
-add(<span class="hljs-number">1</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i</span>)</span>{
-  add(i, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i</span>) </span>{
-    add(i, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i</span>)</span>{
-      add(i, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i</span>)</span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'done'</span>, i);
-      });
-    });
-  });
-});</code></pre>
-<p><strong>Ways out: name and reference functions, use libraries like <a href="https://github.com/caolan/async">async</a>, <a href="https://www.npmjs.com/package/run-series">run-series</a>, <a href="https://www.npmjs.com/package/run-parallel">run-parallel</a> and modularize your stuff</strong></p>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-22">
-    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
-<blockquote>
-<p>Prototypal Inheritance</p>
-</blockquote>
-<pre><code class="lang-js"><span class="hljs-comment">// constructor function</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Hello</span> (<span class="hljs-params">announcement</span>) </span>{
-    <span class="hljs-keyword">if</span> (!(<span class="hljs-keyword">this</span> <span class="hljs-keyword">instanceof</span> Hello)) <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Hello(announcement);
-    <span class="hljs-keyword">this</span>.announcement = announcement;
-}
-
-<span class="hljs-comment">// method</span>
-Hello.prototype.world = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.announcement, <span class="hljs-string">'hello world'</span>);
-};
-
-<span class="hljs-comment">// instantiating an object</span>
-<span class="hljs-keyword">var</span> hello = Hello(); <span class="hljs-comment">// or new Hello();</span>
-hello.world(); <span class="hljs-comment">// prints out: hello world</span>
-
-<span class="hljs-comment">// method added (on the fly)</span>
-Hello.prototype.ch = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.announcement, <span class="hljs-string">'sali duu'</span>);
-};
-hello.ch(); <span class="hljs-comment">// prints out: sali duu</span></code></pre>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-23">
-    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
-<blockquote>
-<p>problem with <code>this</code></p>
-</blockquote>
-<pre><code class="lang-js"><span class="hljs-comment">// constructor function</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Hello</span> (<span class="hljs-params">announcement</span>) </span>{
-    <span class="hljs-keyword">if</span> (!(<span class="hljs-keyword">this</span> <span class="hljs-keyword">instanceof</span> Hello)) <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Hello(announcement);
-    <span class="hljs-keyword">this</span>.announcement = announcement;
-}
-<span class="hljs-comment">// wrong method</span>
-Hello.prototype.world = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-        <span class="hljs-comment">// !!! this is `undefined` in the inner function</span>
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.announcement, <span class="hljs-string">'hello world'</span>);
-    }, <span class="hljs-number">1000</span>);
-};
-<span class="hljs-comment">// correct method</span>
-Hello.prototype.world = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-comment">// save `this` to use in inner function</span>
-    <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>;
-    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-        <span class="hljs-comment">// works as expected</span>
-        <span class="hljs-built_in">console</span>.log(self.announcement, <span class="hljs-string">'hello world'</span>);
-    }, <span class="hljs-number">1000</span>);
-};
-Hello(<span class="hljs-string">'I SAY:'</span>).world();</code></pre>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-24">
-    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
-<blockquote>
-<p>Grasp Functional Beauty</p>
-</blockquote>
-<pre><code class="lang-js">
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">repeater</span> (<span class="hljs-params">who, what</span>) </span>{
-  <span class="hljs-keyword">var</span> text = <span class="hljs-string">'said'</span>;
-  <span class="hljs-comment">// returning the inner function creates a closure at run time</span>
-  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">repeat</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(who, text, what);
-  }
-}
-
-<span class="hljs-keyword">var</span> i = repeater(<span class="hljs-string">'I'</span>,<span class="hljs-string">'hello'</span>);
-<span class="hljs-keyword">var</span> you = repeater(<span class="hljs-string">'you'</span>,<span class="hljs-string">'world'</span>);
-
-i();  <span class="hljs-comment">// I said hello</span>
-you(); <span class="hljs-comment">// you said world</span>
-
-repeater(<span class="hljs-string">'everyone'</span>, <span class="hljs-string">'yay!'</span>)();  <span class="hljs-comment">//everyone said yay!</span></code></pre>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-25">
-    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
-<blockquote>
-<p>problem with <code>for</code> loop</p>
-</blockquote>
-<pre><code class="lang-js">
-<span class="hljs-comment">// works as expected</span>
-<span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'i'</span>, i);
-  <span class="hljs-comment">//0 1 2  ... 9</span>
-} <span class="hljs-comment">// **only use for loop for synchronous actions**</span>
-
-<span class="hljs-comment">// hmmm not really what we wanted</span>
-<span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
-  setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'i'</span>, i)}, <span class="hljs-number">100</span>);
-  <span class="hljs-comment">//10 10 10  ... 10</span>
-} <span class="hljs-comment">// **don't use for loop for asynchronous actions**</span></code></pre>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-26">
-    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
-<blockquote>
-<p>solutions to <code>for</code> loop problems</p>
-</blockquote>
-<pre><code class="lang-js"><span class="hljs-comment">// Array.forEach function</span>
-<span class="hljs-keyword">var</span> arr = [];
-<span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
-  arr.push(i);
-}
-arr.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i</span>)</span>{
-  setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'i'</span>, i)}, <span class="hljs-number">100</span>);
-  <span class="hljs-comment">//0 1 2  ... 9</span>
-});  <span class="hljs-comment">// **Array.forEach works well for asynchronous actions**</span>
-
-<span class="hljs-comment">// anonymous immediately invoked function</span>
-<span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
-  (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i</span>)</span>{
-    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'i'</span>, i)}, <span class="hljs-number">100</span>);
-    <span class="hljs-comment">//0 1 2  ... 9</span>
-  })(i);
-}</code></pre>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-27">
-    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
-<blockquote>
-<p>Variable Hoisting</p>
-</blockquote>
-<p><em>Variables can be used, before they were declared. Variable declarations (not initialization) are moved to the top of the function or global scope (hoisted). It is therefore recommended to declare the variables at the top of the function or global scope</em></p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> myvar = <span class="hljs-string">'hello outer'</span>;
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myfunction</span> (<span class="hljs-params"></span>) </span>{
-  <span class="hljs-built_in">console</span>.log(myvar); <span class="hljs-comment">// undefined</span>
-  <span class="hljs-keyword">var</span> myvar = <span class="hljs-string">'hello inner'</span>;
-}
-myfunction();</code></pre>
-<p><em>myfunction above is equivalent to this:</em></p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myfunction</span> (<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">var</span> myvar; <span class="hljs-comment">// declaration</span>
-  <span class="hljs-built_in">console</span>.log(myvar); <span class="hljs-comment">// undefined</span>
-  myvar = <span class="hljs-string">'hello inner'</span>; <span class="hljs-comment">// initializations</span>
-}</code></pre>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-28">
-    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
-<blockquote>
-<p>Function Hoisting</p>
-</blockquote>
-<p><em>Function definitions are also hoisted, Function declarations <code>var myfunc = function(){}</code> are NOT hoisted.</em></p>
-<pre><code class="lang-js">hoisted(); <span class="hljs-comment">// works</span>
-notHoisted(); <span class="hljs-comment">// TypeError: notHoisted is not a function</span>
-noHoist(); <span class="hljs-comment">// ReferenceError: noHoist is not defined</span>
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hoisted</span>(<span class="hljs-params"></span>)</span>{
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hoisted'</span>);
-}
-
-<span class="hljs-keyword">var</span> notHoisted = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">noHoist</span>(<span class="hljs-params"></span>)</span>{
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'notHoisted'</span>);
-}</code></pre>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-29">
-    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
-<blockquote>
-<p>NO Block Scope</p>
-</blockquote>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> x = <span class="hljs-string">'hallo'</span>;
-<span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 'hallo'</span>
-<span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) { <span class="hljs-comment">// block</span>
-    <span class="hljs-keyword">var</span> x = <span class="hljs-string">'welt'</span>; <span class="hljs-comment">// overwrites var x outside block</span>
-    <span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 'welt'</span>
-}
-<span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 'welt'</span></code></pre>
-<p><strong>JavaScript has function scope (no block scope)</strong></p>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-30">
-    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
-<blockquote>
-<p>but Function Scope</p>
-</blockquote>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> x = <span class="hljs-string">'hallo'</span>;
-<span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 'hallo'</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">welt</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-comment">// function scope</span>
-    <span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) {
-      <span class="hljs-keyword">var</span> x = <span class="hljs-string">'welt'</span>; <span class="hljs-comment">// own declaration of x inside function</span>
-      <span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 'welt'</span>
-  }
-}
-welt();
-<span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 'hallo'</span></code></pre>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-31">
-    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
-<blockquote>
-<p>Function Scope, same in green</p>
-</blockquote>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> x = <span class="hljs-string">'hallo'</span>;
-<span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 'hallo'</span>
-(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-comment">// function scope</span>
-    <span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) {
-      <span class="hljs-keyword">var</span> x = <span class="hljs-string">'welt'</span>; <span class="hljs-comment">// own declaration of x inside function</span>
-      <span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 'welt'</span>
-  }
-})();
-
-<span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 'hallo'</span></code></pre>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-32">
-    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
-<blockquote>
-<p>Immediately-Invoked Function Expression</p>
-</blockquote>
-<pre><code class="lang-js"><span class="hljs-comment">// functions can be declared in brackets (function(){})</span>
-<span class="hljs-comment">// and be Immediately-Invoked with following function call ()</span>
-(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hallo welt'</span>);
-})();
-
-<span class="hljs-comment">// this can be used to get function scope and alias names</span>
-<span class="hljs-comment">// often used with jQuery</span>
-(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) </span>{
-  <span class="hljs-built_in">console</span>.log($(<span class="hljs-string">'body'</span>));
-}(jQuery));</code></pre>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-33">
-    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
-<blockquote>
-<p>NO Dynamic Scope in JavaScript</p>
-</blockquote>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">repeat</span> (<span class="hljs-params">who, what</span>) </span>{
-  <span class="hljs-keyword">var</span> text = <span class="hljs-string">'said'</span>;
-  repeater(who, what);
-}
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">repeater</span>(<span class="hljs-params">who, what</span>) </span>{
-  <span class="hljs-built_in">console</span>.log(who, text, what); <span class="hljs-comment">// ReferenceError: text is not defined</span>
-}
-<span class="hljs-comment">// the repeater function wasn't defined inside the</span>
-<span class="hljs-comment">// caller function that has the text variable defined.</span>
-repeat(<span class="hljs-string">'I'</span>, <span class="hljs-string">', hey YOU!'</span>);</code></pre>
-<p><strong>JavaScript does not support dynamic scope, where the variable resolution happens in the scope where the function is called at run time.</strong></p>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-34">
-    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
-<blockquote>
-<p>Lexical Scope</p>
-</blockquote>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">whoSaysWhat</span> (<span class="hljs-params">who, what</span>) </span>{
-  <span class="hljs-keyword">var</span> text = <span class="hljs-string">'says'</span>;
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">say</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-comment">// inner function can access the outer scope</span>
-    <span class="hljs-built_in">console</span>.log(who, text, what); <span class="hljs-comment">// text is declared in parent function</span>
-  }
-  say();
-}
-whoSaysWhat(<span class="hljs-string">'elephant'</span>, <span class="hljs-string">'trörööö'</span>);  <span class="hljs-comment">// elephant says trörööö</span></code></pre>
-<p><strong>The scope of a variable is statically defined by its location in the source code (not dynamically at run time). This is called lexical scope.</strong></p>
-<p><em>Note: inner functions can access variables from outer functions.</em></p>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-35">
-    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
-<blockquote>
-<p>Closures</p>
-</blockquote>
-<p><em>&quot;Closures are functions that refer to independent (free) variables. In other words, the function defined in the closure &#39;remembers&#39; the environment in which it was created.&quot; <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Closures">quote from mozilla</a></em></p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">repeater</span> (<span class="hljs-params">who, what</span>) </span>{
-  <span class="hljs-keyword">var</span> text = <span class="hljs-string">'said'</span>;
-  <span class="hljs-comment">// inner function is returned and creates a creates closure</span>
-  <span class="hljs-comment">// where the returned function has access to the outer scope</span>
-  <span class="hljs-comment">// it was defined in, even after the outer function has terminated.</span>
-  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">repeat</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(who, text, what);
-  }
-}
-repeater(<span class="hljs-string">'everyone'</span>, <span class="hljs-string">'yay!'</span>)();  <span class="hljs-comment">//everyone said yay!</span></code></pre>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-36">
-    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
-<blockquote>
-<p>different JavaScript / ECMAScript / node.js Versions</p>
-</blockquote>
+    <section class="slide-content"><h3 id="built-with-node-js-at-intesso-http-intesso-com-">built with node.js at <a href="http://intesso.com/">intesso</a></h3>
 <ul>
-<li>ES5 :: <strong>node.js</strong> &lt;= 0.x :: <a href="http://caniuse.com/#search=es5"><strong>browser</strong> caniuse +</a></li>
-<li>ES6 (ECMAScript 2015) :: <strong>io.js, node.js</strong> &gt; 0.x :: <a href="http://caniuse.com/#search=es6"><strong>browser</strong> caniuse ~</a></li>
-</ul>
-<p><strong>node.js releases</strong></p>
-<ul>
-<li>LTS: long term support (even numbers)<ul>
-<li>current release (Nov 2016): V6 &quot;Boron&quot;</li>
-<li>actively maintained for 18 month, maintenance mode afterwards</li>
-<li>no more than two LTS versions at the same time</li>
+<li>Traffic Control System<ul>
+<li>Realtime UI with WebSockets (socket.io)</li>
+<li>TCP/XML Interfaces</li>
 </ul>
 </li>
-<li>Stable: shorter lifespan, more updates (odd numbers)<ul>
-<li>current release (Nov 2016): V7</li>
-<li>when Stable release becomes the next LTS, no new features or breaking changes are added</li>
+<li>Intelligent Charging Station<ul>
+<li>Communication with OSGI bundle via 0mq</li>
+<li>binding with python code with zerorpc</li>
+<li>SOAP WebService Interfaces</li>
+<li>Proprietary Binary Interface with Charging Station</li>
+<li>Admin Web UI</li>
 </ul>
 </li>
+<li><a href="http://intesso.com/projects/remote-access">On demand Remote Access</a></li>
+<li>Modular Content Management System: <a href="http://glintcms.com/">GlintCMS</a>, based on <a href="https://github.com/glintapp/glintapp">GlintApp</a></li>
+<li>and many Open Source npm Modules: <a href="https://www.npmjs.com/~andineck">andineck</a></li>
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-37">
-    <section class="slide-content"><h3 id="js-obstacles">js obstacles</h3>
-<blockquote>
-<ul>
-<li>Changing very fast ....</li>
-<li>Many tools/frameworks to pick from</li>
-<li><strong>It&#39;s hard to choose the <em>right</em> Tool</strong> for the job</li>
-</ul>
-</blockquote>
-</section>
-  </div>
-  <div class="slide hidden author-slide" id="slide-38">
+  <div class="slide hidden author-slide" id="slide-21">
     <section class="slide-content"><div class="author">
   <h1 class="name">Andi Neck</h1>
     <h3 class="twitter">

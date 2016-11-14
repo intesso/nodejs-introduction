@@ -60,49 +60,48 @@ output: index.html
 [go download: https://nodejs.org/en/download/](https://nodejs.org/en/download/)
 
 --
-### experiences with node.js [@andineck](https://twitter.com/andineck)
-
-- started with v0.6
-- v0.8, v0.12, v4.3 in production
-- so far, I hardly ever experienced unexpected behaviour from node.js
-- when something was not working the way I thought it should be, it was most of the time, because I didn't understand JavaScript well enough
-
---
-### built with node.js at [intesso](http://intesso.com/)
-
-- Traffic Control System
-  - Realtime UI with WebSockets (socket.io)
-  - TCP/XML Interfaces
-- Intelligent Charging Station
-  - Communication with OSGI bundle via 0mq
-  - binding with python code with zerorpc
-  - SOAP WebService Interfaces
-  - Proprietary Binary Interface with Charging Station
-  - Admin Web UI
-- [On demand Remote Access](http://intesso.com/projects/remote-access)
-- Modular Content Management System: [GlintCMS](http://glintcms.com/), based on [GlintApp](https://github.com/glintapp/glintapp)
-- and many Open Source npm Modules: [andineck](https://www.npmjs.com/~andineck)
-
-
---
 ### what makes node.js stand out?
 
 - same language on the server and the browser
 - excellent module system [npm](https://www.npmjs.com/)
-- more than 230'000 npm modules
+- more than 
+  - 230'000 npm modules (Jan 2016)
+  - 350'000 npm modules (Nov 2016)
 - quite good open source communities
 - part of the linux foundation
 - and there is more ...
 
 --
-### node.js thesis
+### what is (was) io.js?
+
+- a fork of node.js
+- because developers were not happy with the stewardship of [joyent](https://www.joyent.com/)
+- that was merged in September 2015 into node.js 4.0
+- it lead to a well governed OSS projects
+- that includes everyone: developers, organizations, ...
+- under the umbrella of the linux foundation
+
+### node.js releases
+
+- LTS: long term support (even numbers)
+  - current release (Nov 2016): V6 "Boron"
+  - actively maintained for 18 month, maintenance mode afterwards
+  - no more than two LTS versions at the same time
+- Stable: shorter lifespan, more updates (odd numbers)
+  - current release (Nov 2016): V7
+  - when Stable release becomes the next LTS, no new features or breaking changes are added
+
+--
+### how was node.js started?
+
+**Ryan Dahls thesis**
 
 > io needs to be done differently
 >
 > [original node.js presentation by Ryan Dahl](https://youtu.be/ztspvPYybIY?t=48)
 
 --
-### The cost of I/O
+### the cost of i/o
 
       L1-cache           3 cycles
 
@@ -148,6 +147,7 @@ but how?
 --
 ### editors
 
+- [visual studio code](http://code.visualstudio.com/)
 - [atom](https://atom.io/)
 - [brackets](http://brackets.io/)
 - [sublimetext](http://www.sublimetext.com/3)
@@ -161,17 +161,19 @@ but how?
 --
 ### debugging
 
-> [debugging node.js](http://spin.atomicobject.com/2015/09/25/debug-node-js/) within IDE or with [node-inspector](https://www.npmjs.com/package/node-inspector)
+> [debugging node.js](http://spin.atomicobject.com/2015/09/25/debug-node-js/) within IDE or with [node-inspector](https://www.npmjs.com/package/node-inspector) or with node >= 6
 
 ```sh
 # install once
 npm install -g node-inspector
 # use
 node-debug myapp.js
+# chrome inspector included with node >= 6.0
+node --inspect myapp.js
 ```
 
 > [restarting node.js server on code changes](https://strongloop.com/strongblog/comparison-tools-to-automate-restarting-node-js-server-after-code-changes-forever-nodemon-nodesupervisor-nodedev/)
-> use [nodemon](http://nodemon.io/) or [forever]()
+> use [nodemon](http://nodemon.io/) or [forever](https://www.npmjs.com/package/forever)
 
 ```sh
 # install once
@@ -246,380 +248,25 @@ npm install functional-javascript-workshop -g
 ```
 
 --
-### js obstacles
+### personal experiences with node.js [@andineck](https://twitter.com/andineck)
 
-> Callback Functions
-
-```js
-// dom stuff
-var body = document.querySelector('body');
-
-// event listener
-body.addEventListener('click', myCallback);
-
-function myCallback(e) {
-  confirm("DONT CLICK!");
-}
-
-// same in green, but with nested function
-body.addEventListener('click', function myCallback(e) {
-  confirm("DONT CLICK!");
-});
-```
+- started with v0.6
+- v0.8, v0.12, v4.3 in production
+- so far, I hardly ever experienced unexpected behaviour from node.js
+- when something was not working the way I thought it should be, it was most of the time, because I didn't understand JavaScript well enough
 
 --
-### js obstacles
-
-> [Callback Hell](http://callbackhell.com/) is when your code looks like this
-
-```js
-function add(i, callback) {
-  i = i+1;
-  setTimeout(function(){
-    console.log('count', i);
-    callback(i);
-  }, 100);
-}
-
-add(1, function(i){
-  add(i, function(i) {
-    add(i, function(i){
-      add(i, function(i){
-        console.log('done', i);
-      });
-    });
-  });
-});
-```
-
-**Ways out: name and reference functions, use libraries like [async](https://github.com/caolan/async), [run-series](https://www.npmjs.com/package/run-series), [run-parallel](https://www.npmjs.com/package/run-parallel) and modularize your stuff**
-
---
-### js obstacles
-
-> Prototypal Inheritance
-
-```js
-// constructor function
-function Hello (announcement) {
-    if (!(this instanceof Hello)) return new Hello(announcement);
-    this.announcement = announcement;
-}
-
-// method
-Hello.prototype.world = function () {
-    console.log(this.announcement, 'hello world');
-};
-
-// instantiating an object
-var hello = Hello(); // or new Hello();
-hello.world(); // prints out: hello world
-
-// method added (on the fly)
-Hello.prototype.ch = function () {
-    console.log(this.announcement, 'sali duu');
-};
-hello.ch(); // prints out: sali duu
-```
-
---
-### js obstacles
-
-> problem with `this`
-
-```js
-// constructor function
-function Hello (announcement) {
-    if (!(this instanceof Hello)) return new Hello(announcement);
-    this.announcement = announcement;
-}
-// wrong method
-Hello.prototype.world = function () {
-    setTimeout(function(){
-        // !!! this is `undefined` in the inner function
-        console.log(this.announcement, 'hello world');
-    }, 1000);
-};
-// correct method
-Hello.prototype.world = function () {
-    // save `this` to use in inner function
-    var self = this;
-    setTimeout(function(){
-        // works as expected
-        console.log(self.announcement, 'hello world');
-    }, 1000);
-};
-Hello('I SAY:').world();
-
-```
-
---
-### js obstacles
-
-> Grasp Functional Beauty
-
-```js
-
-function repeater (who, what) {
-  var text = 'said';
-  // returning the inner function creates a closure at run time
-  return function repeat() {
-    console.log(who, text, what);
-  }
-}
-
-var i = repeater('I','hello');
-var you = repeater('you','world');
-
-i();  // I said hello
-you(); // you said world
-
-repeater('everyone', 'yay!')();  //everyone said yay!
-
-```
-
---
-### js obstacles
-
-> problem with `for` loop
-
-```js
-
-// works as expected
-for(var i = 0; i < 10; i++) {
-  console.log('i', i);
-  //0 1 2  ... 9
-} // **only use for loop for synchronous actions**
-
-// hmmm not really what we wanted
-for(var i = 0; i < 10; i++) {
-  setTimeout(function (){console.log('i', i)}, 100);
-  //10 10 10  ... 10
-} // **don't use for loop for asynchronous actions**
-```
-
---
-### js obstacles
-
-> solutions to `for` loop problems
-
-```js
-// Array.forEach function
-var arr = [];
-for(var i = 0; i < 10; i++) {
-  arr.push(i);
-}
-arr.forEach(function(i){
-  setTimeout(function (){console.log('i', i)}, 100);
-  //0 1 2  ... 9
-});  // **Array.forEach works well for asynchronous actions**
-
-// anonymous immediately invoked function
-for(var i = 0; i < 10; i++) {
-  (function(i){
-    setTimeout(function (){console.log('i', i)}, 100);
-    //0 1 2  ... 9
-  })(i);
-}
-```
-
---
-### js obstacles
-
-> Variable Hoisting
-
-*Variables can be used, before they were declared. Variable declarations (not initialization) are moved to the top of the function or global scope (hoisted). It is therefore recommended to declare the variables at the top of the function or global scope*
-```js
-var myvar = 'hello outer';
-function myfunction () {
-  console.log(myvar); // undefined
-  var myvar = 'hello inner';
-}
-myfunction();
-```
-*myfunction above is equivalent to this:*
-```js
-function myfunction () {
-  var myvar; // declaration
-  console.log(myvar); // undefined
-  myvar = 'hello inner'; // initializations
-}
-```
-
---
-### js obstacles
-
-> Function Hoisting
-
-*Function definitions are also hoisted, Function declarations `var myfunc = function(){}` are NOT hoisted.*
-
-```js
-hoisted(); // works
-notHoisted(); // TypeError: notHoisted is not a function
-noHoist(); // ReferenceError: noHoist is not defined
-
-function hoisted(){
-  console.log('hoisted');
-}
-
-var notHoisted = function noHoist(){
-  console.log('notHoisted');
-}
-```
-
---
-### js obstacles
-
-> NO Block Scope
-
-```js
-var x = 'hallo';
-console.log(x); // 'hallo'
-if (true) { // block
-	var x = 'welt'; // overwrites var x outside block
-	console.log(x); // 'welt'
-}
-console.log(x); // 'welt'
-```
-**JavaScript has function scope (no block scope)**
-
-
---
-### js obstacles
-
-> but Function Scope
-
-```js
-var x = 'hallo';
-console.log(x); // 'hallo'
-function welt () { // function scope
-    if (true) {
-  	var x = 'welt'; // own declaration of x inside function
-  	console.log(x); // 'welt'
-  }
-}
-welt();
-console.log(x); // 'hallo'
-```
---
-### js obstacles
-
-> Function Scope, same in green
-
-```js
-var x = 'hallo';
-console.log(x); // 'hallo'
-(function () { // function scope
-    if (true) {
-  	var x = 'welt'; // own declaration of x inside function
-  	console.log(x); // 'welt'
-  }
-})();
-
-console.log(x); // 'hallo'
-```
---
-### js obstacles
-
-> Immediately-Invoked Function Expression
-
-```js
-// functions can be declared in brackets (function(){})
-// and be Immediately-Invoked with following function call ()
-(function () {
-  console.log('hallo welt');
-})();
-
-// this can be used to get function scope and alias names
-// often used with jQuery
-(function ($) {
-  console.log($('body'));
-}(jQuery));
-
-```
-
---
-### js obstacles
-
-> NO Dynamic Scope in JavaScript
-
-```js
-function repeat (who, what) {
-  var text = 'said';
-  repeater(who, what);
-}
-
-function repeater(who, what) {
-  console.log(who, text, what); // ReferenceError: text is not defined
-}
-// the repeater function wasn't defined inside the
-// caller function that has the text variable defined.
-repeat('I', ', hey YOU!');
-```
-
-**JavaScript does not support dynamic scope, where the variable resolution happens in the scope where the function is called at run time.**
-
---
-### js obstacles
-
-> Lexical Scope
-
-```js
-function whoSaysWhat (who, what) {
-  var text = 'says';
-  function say() { // inner function can access the outer scope
-    console.log(who, text, what); // text is declared in parent function
-  }
-  say();
-}
-whoSaysWhat('elephant', 'trörööö');  // elephant says trörööö
-```
-
-**The scope of a variable is statically defined by its location in the source code (not dynamically at run time). This is called lexical scope.**
-
-*Note: inner functions can access variables from outer functions.*
-
---
-### js obstacles
-
-> Closures
-
-*"Closures are functions that refer to independent (free) variables. In other words, the function defined in the closure 'remembers' the environment in which it was created." [quote from mozilla](https://developer.mozilla.org/en/docs/Web/JavaScript/Closures)*
-
-```js
-function repeater (who, what) {
-  var text = 'said';
-  // inner function is returned and creates a creates closure
-  // where the returned function has access to the outer scope
-  // it was defined in, even after the outer function has terminated.
-  return function repeat() {
-    console.log(who, text, what);
-  }
-}
-repeater('everyone', 'yay!')();  //everyone said yay!
-```
-
---
-### js obstacles
-
-> different JavaScript / ECMAScript / node.js Versions
-
-- ES5 :: **node.js** <= 0.x :: [**browser** caniuse +](http://caniuse.com/#search=es5)
-- ES6 (ECMAScript 2015) :: **io.js, node.js** > 0.x :: [**browser** caniuse ~](http://caniuse.com/#search=es6)
-
-**node.js releases**
-- LTS: long term support (even numbers)
-  - current release (Nov 2016): V6 "Boron"
-  - actively maintained for 18 month, maintenance mode afterwards
-  - no more than two LTS versions at the same time
-- Stable: shorter lifespan, more updates (odd numbers)
-  - current release (Nov 2016): V7
-  - when Stable release becomes the next LTS, no new features or breaking changes are added
-
-
---
-### js obstacles
-
-> - Changing very fast ....
-> - Many tools/frameworks to pick from
-> - **It's hard to choose the *right* Tool** for the job
+### built with node.js at [intesso](http://intesso.com/)
+
+- Traffic Control System
+  - Realtime UI with WebSockets (socket.io)
+  - TCP/XML Interfaces
+- Intelligent Charging Station
+  - Communication with OSGI bundle via 0mq
+  - binding with python code with zerorpc
+  - SOAP WebService Interfaces
+  - Proprietary Binary Interface with Charging Station
+  - Admin Web UI
+- [On demand Remote Access](http://intesso.com/projects/remote-access)
+- Modular Content Management System: [GlintCMS](http://glintcms.com/), based on [GlintApp](https://github.com/glintapp/glintapp)
+- and many Open Source npm Modules: [andineck](https://www.npmjs.com/~andineck)
