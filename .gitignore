@@ -2,3 +2,7 @@ node_modules
 .DS_Store
 *.log
 yarn.lock
+.vscode
+typings
+typings.json
+jsconfig.json
