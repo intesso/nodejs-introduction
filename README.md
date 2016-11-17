@@ -9,10 +9,13 @@ style: style.css
 output: index.html
 
 --
-# node.js introduction
+# node.js intro
 
 
 > http://intesso.github.io/nodejs-introduction
+
+feedback and pull requests welcome on [GitHub ](https://github.com/intesso/nodejs-introduction)[![github](img/github.png)](https://github.com/intesso/nodejs-introduction)
+
 
 *navigate with left, right keys*
 
@@ -56,7 +59,7 @@ output: index.html
 >
 > **windows, linux, mac, arm, docker** ...
 
-[go download: https://nodejs.org/en/download/](https://nodejs.org/en/download/)
+download: [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
 
 --
 ### what makes node.js stand out?
@@ -67,6 +70,7 @@ output: index.html
   - 230'000 npm modules (Jan 2016)
   - 350'000 npm modules (Nov 2016)
 - quite good open source communities
+- sharing spirit
 - part of the linux foundation
 - and there is more ...
 
@@ -74,7 +78,7 @@ output: index.html
 ### what is (was) io.js?
 
 - a fork of node.js
-- because developers were not happy with the stewardship of [joyent](https://www.joyent.com/)
+- because developers were not happy with the development of the stewardship of [joyent](https://www.joyent.com/)
 - that was merged in September 2015 into node.js 4.0
 - it lead to a well governed OSS projects
 - that includes everyone: developers, organizations, ...
