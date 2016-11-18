@@ -93,7 +93,7 @@ body, .slide {
 
 .prev:before {
   float: left;
-  content: url(/img/left.png);
+  content: url(img/left.png);
 }
 
 .next {
@@ -103,5 +103,5 @@ body, .slide {
 
 .next:before {
   float: right;
-  content: url(/img/right.png);
+  content: url(img/right.png);
 }
